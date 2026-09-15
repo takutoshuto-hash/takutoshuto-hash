@@ -68,4 +68,5 @@
 
 - ✍️ Zenn：https://zenn.dev/takutoshuto
 - 🔗 ライブデモ（GiftDesk）：https://takutoshuto-hash.github.io/gift-order-demo/
+- 💻 公開コード（メール整理エージェント）：https://github.com/takutoshuto-hash/mail-triage-agent
 - 🐙 GitHub：https://github.com/takutoshuto-hash
