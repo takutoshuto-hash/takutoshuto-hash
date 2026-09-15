@@ -27,6 +27,7 @@
 | **多店舗SEO分析** | 制作会社任せだったGA4/GSCを自社に取り戻し、月次レポート＋ブログ運用を半自動化 | GA4 / Search Console / Python / BigQuery / Claude | [解説記事](https://zenn.dev/takutoshuto/articles/850997ad982ff4) |
 | **GiftDesk（受注管理）** | 申込入力から送り状CSV・指示書・熨斗・請求書までを1つのSPAに統合。FAX注文書はLLMで構造化抽出 | Google Apps Script / スプレッドシート / Gemini API | [ライブデモ](https://takutoshuto-hash.github.io/gift-order-demo/) |
 | **直送 / カタログギフト受注** | Web・ハガキOCR・Amazon取込・銀行CSVの入金消込・追跡番号通知を内製で一気通貫 | GAS / GitHub Pages / OCR(Vision/Gemini) | — |
+| **メール整理エージェント**（公開コード） | 毎朝の受信メールをAIが重要度★1〜5で仕分けし、🔴🟠だけをSlackに要約通知。返信下書きも生成（自動送信はしない） | Python / AWS SAM / Claude / Gemini / IMAP | [コード](https://github.com/takutoshuto-hash/mail-triage-agent) |
 
 ---
 
