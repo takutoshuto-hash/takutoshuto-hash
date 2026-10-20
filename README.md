@@ -42,7 +42,7 @@
 
 | プロジェクト | 概要 | 主な技術 | リンク |
 |---|---|---|---|
-| **受注・出荷の統合（統一注文モデル）** | 自社EC・直送ギフト・カタログギフト・Amazon・はがき/FAXの注文を1つのモデルに正規化し、出荷業務を1画面化。本番移行済み | PHP / MySQL / PDO / ヤマトB2 CSV | [設計記録](https://zenn.dev/takutoshuto/articles/e12ef58cfe8f18) |
+| **受注・出荷の統合（統一注文モデル）** | 自社EC・直送ギフト・カタログギフト・Amazon・はがき/FAXの注文を1つのモデルに正規化し、出荷業務を1画面化。本番移行済み | PHP / MySQL / PDO / ヤマトB2 CSV | [設計記録](https://zenn.dev/takutoshuto/articles/e12ef58cfe8f18)・[PHP出荷支援の記事](https://zenn.dev/takutoshuto/articles/ae8ed60e00a0ca) |
 | **GiftDesk（受注管理）** | 申込入力から送り状CSV・指示書・熨斗・請求書までを1つのSPAに統合。FAX注文書はLLMで構造化抽出 | Google Apps Script / スプレッドシート / Gemini API | [解説記事](https://zenn.dev/takutoshuto/articles/bc2ff859475742)・[ライブデモ](https://takutoshuto-hash.github.io/gift-order-demo/) |
 | **手書き帳票のLLM×OCR** | 自作OCRで挫折し、Cloud Vision → Gemini にたどり着くまで。ハッカソンでは「信頼が育つ」エージェントへ発展 | Gemini API / Cloud Vision / Python | [解説記事](https://zenn.dev/takutoshuto/articles/a9e73fa4ed60ca)・[エージェント版](https://zenn.dev/takutoshuto/articles/0ba433ee0dbe33) |
 | **GBP/MEO 内製化** | 19施設の口コミ返信（AI下書き＋一括投稿）・数値監視・営業時間の改ざん検知・月次レポートを自作 | Python / Google Business Profile API / BigQuery / Looker Studio / Claude | [解説記事](https://zenn.dev/takutoshuto/articles/b589f1516c5052) |
@@ -52,10 +52,11 @@
 
 ---
 
-## ✍️ 書いたもの（Zenn・7本）
+## ✍️ 書いたもの（Zenn・8本）
 
 実務で作ったシステムの設計判断と落とし穴を記事にしています。→ **[zenn.dev/takutoshuto](https://zenn.dev/takutoshuto)**
 
+- [ECの管理画面を我慢せず"横"に作る — Welcart自社ECの入金確認〜発送メールを1画面に、PHP×Claude Codeで](https://zenn.dev/takutoshuto/articles/ae8ed60e00a0ca)
 - [「注文」という言葉が、4つのシステムで4つの意味を持っていた — バラバラな受注を"1つの注文モデル"に統合した設計記録](https://zenn.dev/takutoshuto/articles/e12ef58cfe8f18)
 - [信頼が育つOCR AI エージェント ― 手書き FAX 注文書の確認を「全部」から「例外」へ](https://zenn.dev/takutoshuto/articles/0ba433ee0dbe33)
 - [手書きFAX・ハガキ注文をLLM×OCRで構造化する — 自作OCRで挫折し、Vision→Geminiにたどり着くまで](https://zenn.dev/takutoshuto/articles/a9e73fa4ed60ca)
@@ -102,6 +103,5 @@
 <!--
 差し替えメモ:
 - OCR Trust Agent のリポジトリを公開したら、表の「審査期間中は非公開」を [コード](https://github.com/takutoshuto-hash/ocr-trust-agent) に差し替え。
-- Welcart（PHP）記事を公開したら、代表プロジェクト表「受注・出荷の統合」行にリンクを追加し、Zenn の一覧にも1行足す。
 - ピン留め（Customize your pins）は social-post-agent / mail-triage-agent / gift-order-demo の順。
 -->
