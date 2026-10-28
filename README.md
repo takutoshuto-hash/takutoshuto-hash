@@ -6,6 +6,7 @@
 [![Live Demo](https://img.shields.io/badge/Live_Demo-GiftDesk-2EA44F?logo=googlechrome&logoColor=white)](https://takutoshuto-hash.github.io/gift-order-demo/)
 [![CI mail-triage-agent](https://github.com/takutoshuto-hash/mail-triage-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/takutoshuto-hash/mail-triage-agent/actions)
 [![CI social-post-agent](https://github.com/takutoshuto-hash/social-post-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/takutoshuto-hash/social-post-agent/actions)
+[![CI unified-order-model](https://github.com/takutoshuto-hash/unified-order-model/actions/workflows/ci.yml/badge.svg)](https://github.com/takutoshuto-hash/unified-order-model/actions)
 
 専門の開発部署がない食品・ホスピタリティ系の会社で、EC・Webマーケティングと社内システム開発を一人で兼任しています。現場の困りごとを、**要件定義 → 設計 → 実装 → 運用保守まで一人で**動くシステムにして解決してきました。直近では、チャネルごとにバラバラだった4つの受注・出荷システムを「1つの注文モデル」に統合し、PHP + MySQL の自社アプリとして**本番移行まで完了**させています。
 
@@ -15,10 +16,11 @@
 
 ## 📦 まず見てほしい公開コード
 
-実務で動いているものを、固有情報をダミーに置き換えて公開しています。**テストと CI 付き**で、外部APIに接続せずに `pytest` が通ります。
+実務で動いているものを、固有情報をダミーに置き換えて公開しています。**テストと CI 付き**で、外部APIに接続せずに `pytest` / `vitest` が通ります。
 
 | リポジトリ | 何か | 技術 | テスト / CI |
 |---|---|---|---|
+| **[unified-order-model](https://github.com/takutoshuto-hash/unified-order-model)** | 4つの受注システムでバラバラだった「注文」を1つのモデルにそろえる変換。依頼主がいない注文・空のお届け先・旧システムのステータスを型で止める（本番 PHP の設計を TypeScript で表し直したもの） | TypeScript（strict） / Vitest | Vitest 46ケース（型のテストを含む）・GitHub Actions（Node 20〜24）・[解説記事](https://zenn.dev/takutoshuto/articles/1485430c919762) |
 | **[social-post-agent](https://github.com/takutoshuto-hash/social-post-agent)** | Slackの一言から Notion の事実を参照して Instagram 投稿案を月10件生成するAIエージェント（本番稼働中のものの公開版） | Python / AWS Lambda・DynamoDB・EventBridge・SAM / Claude / Gemini | pytest 41ケース・GitHub Actions |
 | **[mail-triage-agent](https://github.com/takutoshuto-hash/mail-triage-agent)** | 毎朝の受信メールを重要度で仕分けし、重要なものだけ Slack に届けるAIエージェント。返信は下書きまで（人が送る） | Python / AWS SAM / Claude / Gemini / IMAP | pytest 57ケース・GitHub Actions（3.11〜3.13） |
 | **[gift-order-demo](https://github.com/takutoshuto-hash/gift-order-demo)** | 受注管理SPA「GiftDesk」の公開デモ。入力1回で送り状CSV・指示書・熨斗・月次集計まで | HTML / CSS / Vanilla JS（単一ファイル） | [ライブデモ](https://takutoshuto-hash.github.io/gift-order-demo/) |
@@ -42,7 +44,7 @@
 
 | プロジェクト | 概要 | 主な技術 | リンク |
 |---|---|---|---|
-| **受注・出荷の統合（統一注文モデル）** | 自社EC・直送ギフト・カタログギフト・Amazon・はがき/FAXの注文を1つのモデルに正規化し、出荷業務を1画面化。本番移行済み | PHP / MySQL / PDO / ヤマトB2 CSV | [設計記録](https://zenn.dev/takutoshuto/articles/e12ef58cfe8f18)・[PHP出荷支援の記事](https://zenn.dev/takutoshuto/articles/ae8ed60e00a0ca) |
+| **受注・出荷の統合（統一注文モデル）** | 自社EC・直送ギフト・カタログギフト・Amazon・はがき/FAXの注文を1つのモデルに正規化し、出荷業務を1画面化。本番移行済み | PHP / MySQL / PDO / ヤマトB2 CSV | [設計記録](https://zenn.dev/takutoshuto/articles/e12ef58cfe8f18)・[PHP出荷支援の記事](https://zenn.dev/takutoshuto/articles/ae8ed60e00a0ca)・[型で表し直したコード](https://github.com/takutoshuto-hash/unified-order-model) |
 | **GiftDesk（受注管理）** | 申込入力から送り状CSV・指示書・熨斗・請求書までを1つのSPAに統合。FAX注文書はLLMで構造化抽出 | Google Apps Script / スプレッドシート / Gemini API | [解説記事](https://zenn.dev/takutoshuto/articles/bc2ff859475742)・[ライブデモ](https://takutoshuto-hash.github.io/gift-order-demo/) |
 | **手書き帳票のLLM×OCR** | 自作OCRで挫折し、Cloud Vision → Gemini にたどり着くまで。ハッカソンでは「信頼が育つ」エージェントへ発展 | Gemini API / Cloud Vision / Python | [解説記事](https://zenn.dev/takutoshuto/articles/a9e73fa4ed60ca)・[エージェント版](https://zenn.dev/takutoshuto/articles/0ba433ee0dbe33) |
 | **GBP/MEO 内製化** | 19施設の口コミ返信（AI下書き＋一括投稿）・数値監視・営業時間の改ざん検知・月次レポートを自作 | Python / Google Business Profile API / BigQuery / Looker Studio / Claude | [解説記事](https://zenn.dev/takutoshuto/articles/b589f1516c5052) |
@@ -52,10 +54,11 @@
 
 ---
 
-## ✍️ 書いたもの（Zenn・8本）
+## ✍️ 書いたもの（Zenn・9本）
 
 実務で作ったシステムの設計判断と落とし穴を記事にしています。→ **[zenn.dev/takutoshuto](https://zenn.dev/takutoshuto)**
 
+- [4つの受注システムの「注文」を、TypeScript の型で1つにする — null・空配列・ステータスを型で止める](https://zenn.dev/takutoshuto/articles/1485430c919762)
 - [ECの管理画面を我慢せず"横"に作る — Welcart自社ECの入金確認〜発送メールを1画面に、PHP×Claude Codeで](https://zenn.dev/takutoshuto/articles/ae8ed60e00a0ca)
 - [「注文」という言葉が、4つのシステムで4つの意味を持っていた — バラバラな受注を"1つの注文モデル"に統合した設計記録](https://zenn.dev/takutoshuto/articles/e12ef58cfe8f18)
 - [信頼が育つOCR AI エージェント ― 手書き FAX 注文書の確認を「全部」から「例外」へ](https://zenn.dev/takutoshuto/articles/0ba433ee0dbe33)
