@@ -6,9 +6,9 @@
 [![Live Demo](https://img.shields.io/badge/Live_Demo-GiftDesk-2EA44F?logo=googlechrome&logoColor=white)](https://takutoshuto-hash.github.io/gift-order-demo/)
 [![CI unified-order-model](https://github.com/takutoshuto-hash/unified-order-model/actions/workflows/ci.yml/badge.svg)](https://github.com/takutoshuto-hash/unified-order-model/actions)
 
-IT の担当者がおらず、注文を **FAX と電話**で受けていた食品ギフトの会社で働いています。任された受注・出荷の不便を自分で解消しようと、GAS で仕組みを作り始めたのが出発点です。作り足すうちに増えたアプリは 2026年9月に **1つの自社アプリ**にまとめ、いまは出荷担当の3名が毎日使っています。
+IT の担当者がおらず、注文を **FAX と電話**で受けていた食品ギフトの会社に、Amazon の販売担当として入社しました。任された受注・出荷の仕事にも不便が多く、自分で仕組みを作り始めたのが今の仕事の出発点です。作り足すうちに増えたアプリは 2026年9月に **1つの自社アプリ**にまとめ、いまは出荷担当の3名が毎日使っています。
 
-そこから担当が広がり、**Amazon の立ち上げ・自社EC・グループ19施設の Googleマップ・SEO と SNS** を受け持っています。どの担当も、生成AI（Claude / Gemini）と自作の仕組みで回しています。2026年11月には、販路ごとにばらばらだった数字を1つの画面に集めました。開発部署はなく、設計から実装、運用までを1人で持っています。
+そこから担当が広がり、Amazon に加えて**自社EC・グループ19施設の Googleマップ・SEO と SNS** を受け持っています。どの担当も、生成AI（Claude / Gemini）と自作の仕組みで回しています。2026年11月には、販路ごとにばらばらだった数字を1つの画面に集めました。開発部署はなく、設計から実装、運用までを1人で持っています。
 
 ---
 
@@ -51,7 +51,7 @@ IT の担当者がおらず、注文を **FAX と電話**で受けていた食�
 - 3名が同時に使っても壊れない作り（版番号の楽観ロック・採番の原子化・冪等な取り込み）
 - 記事: [全体の流れ](https://zenn.dev/takutoshuto/articles/12562ee33ede1e)・[設計記録](https://zenn.dev/takutoshuto/articles/e12ef58cfe8f18)・[GiftDesk](https://zenn.dev/takutoshuto/articles/bc2ff859475742)・[手書き帳票の LLM×OCR](https://zenn.dev/takutoshuto/articles/a9e73fa4ed60ca)
 
-### Amazon の立ち上げと運用
+### Amazon の立ち上げと、広告の分析・改善
 - 販売担当として入社し、出品者の登録から商品登録までを1人で行い、2025年10月に販売を開始
 - 最初に売上を分析し、売れている商品と買っている人（個人・法人）の偏りを突き止めて、広告の配分を見直した
 - 広告は実売上と突き合わせた数字で毎週分析して見直し、成果の出ない広告の停止や関係のない検索語の除外で **TACOS を約61%から約26〜34%に**。Amazon Ads API を申請から承認まで通し、取得・集計・予算の切り替えを自動化。金額の判断は人、キーワードの整理は AI という分担
